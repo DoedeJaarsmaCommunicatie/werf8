@@ -1,5 +1,55 @@
 @use '!styles/abstracts/mixins' as m;
-
+@use '!styles/abstracts/variables' as v;
 body {
   @include m.font-body;
+  color: v.$black;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include m.font-title;
+  margin-bottom: .5rem;
+}
+
+h {
+  &1 {
+    font-size: 3rem
+  }
+  &2 {
+    font-size: 2.8rem;
+  }
+  &3 {
+    font-size: 2rem;
+  }
+  &4 {
+    font-size: 1.85rem;
+  }
+  &5 {
+    font-size: 1.5rem;
+  }
+  &6 {
+    font-size: 1.25rem;
+  }
+}
+
+.font-special {
+  @include m.font-special;
+}
+
+a {
+  color: v.$primary;
+  text-decoration: underline;
+  transition: all 225ms ease;
+  &:hover {
+    color: v.$link;
+    transition: all 225ms ease;
+  }
 }
