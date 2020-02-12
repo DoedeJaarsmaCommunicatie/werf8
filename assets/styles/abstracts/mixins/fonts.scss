@@ -1,0 +1,19 @@
+@use '../variables' as V;
+
+@mixin font-body {
+  font-family: V.$font-body;
+  font-weight: V.$font-weight-body;
+  font-style: normal;
+}
+
+@mixin font-title {
+  font-family: V.$font-title;
+  font-weight: V.$font-weight-title;
+  font-style: normal;
+}
+
+@mixin font-special {
+  font-family: V.$font-special;
+  font-weight: V.$font-weight-special;
+  font-style: normal;
+}
