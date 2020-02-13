@@ -1,12 +1,13 @@
-<header role="banner">
-    <div class="container mx-auto">
-        <div class="header-start">{% do action('werf8_header_start') %}</div>
+<header role="banner" class="header">
+    <div class="container mx-auto lg:flex">
+        <div class="header-start">
+            {% do action('werf8_pre_header_start') %}
+            {{ include('partials/header/logo.html.twig') }}
+            {% do action('werf8_post_header_start') %}
+        </div>
         <div class="header-end">
             {% do action('werf8_pre_header_end') %}
-            <!-- Hier moet menu komen. -->
-            Home
-            Locatie
-            Woningen
+            {{ include('partials/header/navbar.html.twig') }}
             {% do action('werf8_post_header_end') %}
         </div>
     </div>

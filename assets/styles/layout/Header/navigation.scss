@@ -1,0 +1,7 @@
+@use '!styles/abstracts/variables' as v;
+
+.nav-item {
+  color: v.$white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}

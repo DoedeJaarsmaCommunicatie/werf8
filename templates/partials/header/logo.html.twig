@@ -1,0 +1,10 @@
+{% set _logo = Image(theme.theme_mod('custom_logo')) %}
+<a class="custom-logo-nav" href="{{ site.link }}">
+    <figure class="custom-logo-wrapper">
+        {% do action('werf8_pre_custom_logo') %}
+        <img alt="{{ _logo.alt|apply_filters('werf8_custom_logo_alt') }}"
+             class="custom-logo"
+             src="{{ _logo.src }}">
+        {% do action('werf8_post_custom_logo') %}
+    </figure>
+</a>

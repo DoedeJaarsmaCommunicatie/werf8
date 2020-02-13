@@ -1,0 +1,14 @@
+@use '!styles/abstracts/variables/colors' as c;
+@use '!styles/abstracts/variables/logo' as v;
+
+.custom-logo {
+  position: absolute;
+  max-width: v.$logo-width;
+  top: v.$logo-top;
+
+  @if (not v.$logo-on-homepage) {
+    .home & {
+      display: none;
+    }
+  }
+}
