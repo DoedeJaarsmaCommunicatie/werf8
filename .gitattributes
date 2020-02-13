@@ -23,3 +23,5 @@ composer.lock       export-ignore
 package.json        export-ignore
 tailwind.config.js  export-ignore
 uwire.config.json   export-ignore
+.distignore         export-ignore
+.gitattributes      export-ignore
