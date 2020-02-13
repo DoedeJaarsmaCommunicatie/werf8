@@ -18,8 +18,9 @@ class MenuServiceProvider
      */
     protected $menus = [
         'primary-menu' => 'Primary',
+	    'footer-menu' => 'Footer'
     ];
-    
+
     /**
      * MenuServiceProvider constructor.
      */
@@ -27,7 +28,7 @@ class MenuServiceProvider
     {
         $this->boot();
     }
-    
+
     /**
      * Register nav menus in timber
      *
@@ -36,10 +37,10 @@ class MenuServiceProvider
     public function boot(): void
     {
         register_nav_menus($this->menus);
-        
+
         add_filter('timber/context', [ $this, 'registerContent' ]);
     }
-    
+
     /**
      * Register nav menu's in twig.
      *

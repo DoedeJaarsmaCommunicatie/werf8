@@ -1,8 +1,13 @@
 <?php
 
-$context = \Timber\Timber::get_context();
+use Timber\Post;
+use Timber\Timber;
 
-return \Timber\Timber::render(
+$context = Timber::get_context();
+
+$context['post'] = new Post();
+
+return Timber::render(
     [
         'views/page.html.twig',
     ],
