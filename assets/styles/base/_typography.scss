@@ -1,5 +1,6 @@
 @use '!styles/abstracts/mixins' as m;
 @use '!styles/abstracts/variables' as v;
+/* purgecss start ignore */
 body {
   @include m.font-body;
   color: v.$black;
@@ -44,6 +45,14 @@ h {
   @include m.font-special;
 }
 
+.font-title {
+  @include m.font-title;
+}
+
+.font-body {
+  @include m.font-body;
+}
+
 a {
   color: v.$primary;
   text-decoration: underline;
@@ -53,3 +62,5 @@ a {
     transition: all 225ms ease;
   }
 }
+
+/* purgecss end ignore */

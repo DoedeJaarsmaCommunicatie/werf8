@@ -1,0 +1,11 @@
+@use '!styles/components/bulb' as *;
+
+/* purgecss ignore */
+%btn {
+  @extend %bulb;
+
+  display: block;
+  padding: .5rem 1rem;
+  text-decoration: none;
+}
+
