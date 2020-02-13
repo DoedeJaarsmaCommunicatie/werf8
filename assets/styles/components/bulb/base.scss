@@ -1,0 +1,15 @@
+%bulb {
+  position: relative;
+  z-index: 1;
+  &::after {
+    position: absolute;
+    content: ' ';
+    background: inherit;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 50%;
+    clip-path: ellipse(50% 15%);
+    z-index: -1;
+  }
+}

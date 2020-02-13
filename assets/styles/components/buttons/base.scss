@@ -1,0 +1,10 @@
+@use '!styles/components/bulb' as *;
+
+%btn {
+  @extend %bulb;
+
+  display: block;
+  padding: .5rem 1rem;
+  text-decoration: none;
+}
+

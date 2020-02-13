@@ -1,0 +1,26 @@
+@use '!styles/abstracts/variables' as v;
+@use '!styles/components/buttons/base' as *;
+
+.button {
+  @extend %btn;
+
+  &.is-primary {
+    background: v.$primary;
+    color: v.$white;
+  }
+
+  &.is-secondary {
+    background: v.$secondary;
+    color: v.$black;
+  }
+
+  &.is-white {
+    background: v.$white;
+    color: v.$black;
+  }
+
+  &.is-black {
+    background: v.$black;
+    color: v.$white;
+  }
+}
