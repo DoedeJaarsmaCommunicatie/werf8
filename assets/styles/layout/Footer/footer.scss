@@ -1,0 +1,5 @@
+@use '!styles/abstracts/variables' as v;
+
+footer.footer {
+  border-top: .2px solid v.$black;
+}

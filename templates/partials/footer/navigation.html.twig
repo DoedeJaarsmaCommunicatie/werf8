@@ -1,0 +1,9 @@
+<nav class="footer-nav" role="navigation">
+    {% for item in footerMenu.items %}
+        <a class="{{ item.classes|join(' ') }} footer-nav-item"
+           href="{{ item.link|apply_filters('werf8_footer_nav_item_link_' ~ item.id) }}"
+           title="{{ item.title|apply_filters('werf8_footer_nav_item_title_' ~ item.id) }}">
+            {{ item|apply_filters('werf8_footer_nav_item_name_' ~ item.id) }}
+        </a>
+    {% endfor %}
+</nav>

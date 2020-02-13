@@ -1,0 +1,7 @@
+<footer class="footer">
+    <div class="container mx-auto">
+        {% do action('werf8_pre_footer_menu') %}
+        {{ include('partials/footer/navigation.html.twig') }}
+        {% do action('werf8_post_footer_menu') %}
+    </div>
+</footer>
