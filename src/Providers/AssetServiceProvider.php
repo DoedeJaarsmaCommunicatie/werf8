@@ -39,6 +39,7 @@ class AssetServiceProvider implements ServiceProvider
 	{
 		do_action('werf8_pre_enqueue_scripts');
 		WP::addScript('main', WP::get_stylesheet_directory_uri() . '/dist/sccripts/main.js');
+		WP::addScript('fontawesome', 'https://kit.fontawesome.com/2b73c9b27f.js', [], false, true);
 		WP::enqueueScripts();
 		do_action('werf8_post_enqueue_scripts');
 	}

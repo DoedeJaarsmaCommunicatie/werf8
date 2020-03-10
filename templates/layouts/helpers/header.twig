@@ -1,5 +1,5 @@
 <header role="banner" class="header">
-    <div class="container mx-auto lg:flex">
+    <div class="container mx-auto flex px-4 lg:px-0">
         <div class="header-start">
             {% do action('werf8_pre_header_start') %}
             {{ include('partials/header/logo.html.twig') }}
@@ -7,6 +7,9 @@
         </div>
         <div class="header-end">
             {% do action('werf8_pre_header_end') %}
+            <button class="button is-white lg:hidden" onclick="document.querySelector('.nav-bar').classList.toggle('active')">
+                <i class="fas fa-bars"></i>
+            </button>
             {{ include('partials/header/navbar.html.twig') }}
             {% do action('werf8_post_header_end') %}
         </div>
