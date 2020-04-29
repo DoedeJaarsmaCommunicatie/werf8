@@ -4,6 +4,11 @@
   color: v.$white;
   text-decoration: none;
   padding: 0.5rem 1rem;
+
+  @media screen and (max-width: 768px) {
+    text-align: right;
+    padding: 1rem;
+  }
 }
 
 .nav-bar {
@@ -14,6 +19,12 @@
     transform: scale(0, 1);
     transform-origin: right;
     transition: all 225ms ease-in-out;
+    background:rgba(33,36,43,0.9);
+    z-index: 20;
+    margin-top:-1px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
     &.active {
       transform: scale(1);
