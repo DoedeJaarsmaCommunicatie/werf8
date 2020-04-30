@@ -54,20 +54,29 @@ class PostTypeServiceProvider implements ServiceProvider
 			->add_fields([
 				Field::make('text', 'price', __('Prijs', 'werf8'))
 					->set_attribute('placeholder' , 'xxx.xxx,-'),
+				Field::make('text', 'price_extra', __('Extra over prijs', 'werf8')),
+
 				Field::make('text', 'surface_area', __('Oppervlakte', 'werf8'))
 					->set_attribute('placeholder', 'xx'),
 				Field::make('text', 'outside_area', __('Buitenruimte', 'werf8'))
 					->set_attribute('placeholder', 'xx'),
-				Field::make('text', 'location', __('Ligging', 'werf8'))
-					->set_attribute('placeholder', '1e verdieping'),
+
 				Field::make('select', 'status', __('Status', 'werf8'))
 					->set_options([
 						'soon' => 'Binnenkort in de verkoop',
 						'active' => 'In de verkoop',
 						'sold' => 'Verkocht'
 					]),
+
 				Field::make('rich_text', 'extra', __('Extra info', 'werf8')),
-				Field::make('image', 'floor_plan', __('Floor plan', 'werf8'))
+			]);
+
+		Container::make('post_meta', __('Afbeeldingen'))
+			->where('post_type', '=', 'lot')
+			->add_fields([
+				Field::make('image', 'floor_plan', __('Plattegrond', 'werf8')),
+				Field::make('image', 'ambiance_pic', __('Sfeerfoto')),
+				Field::make('image', 'exterior_marked', __('Exterieur vogelvlucht')),
 			]);
 	}
 

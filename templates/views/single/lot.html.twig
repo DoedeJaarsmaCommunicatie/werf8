@@ -1,0 +1,69 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    <main class="main-content-lot">
+        <figure class="hero">
+            <img class="hero-image" src="{{ images.ambiance.src }}" alt="{{ post.title }}" />
+        </figure>
+
+        <section class="container mx-auto ">
+            <div class="p-4 bordered-content">
+                <div class="content border-right">
+                    <h1 class="mb-4">{{ post.title }}</h1>
+                    {{ post.content }}
+                </div>
+                <aside>
+                    <h2 class="mb-4">Specificaties</h2>
+
+                    {% if areas.surface %}
+                        <p>Oppervlakte: {{ areas.surface }} m<sup>2</sup></p>
+                    {% endif %}
+
+                    {% if areas.outside %}
+                        <p>Buitenruimte: {{ areas.outside }} m<sup>2</sup></p>
+                    {% endif %}
+
+                    {% if floors %}
+                        <p>Ligging: {{ floors|join(' en ') }} verdieping</p>
+                    {% endif %}
+
+                    {% if price.price %}
+                        <p>Prijs: &euro; {{ price.price }} {{ price.info }}</p>
+                    {% endif %}
+                    <p>
+                    <span>
+                        Status:
+                        {% if status is same as('soon') %}
+                            Binnenkort in de verkoop
+                            {% elsif status is same as('active') %}
+                            In verkoop
+                        {% else %}
+                            Verkocht
+                        {% endif %}
+                    </span>
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="lg:flex">
+            <aside>
+                <figure>
+                    <img src="{{ images.exterior.src }}" alt="{{ post.title }} vanaf de buitenkant">
+                </figure>
+            </aside>
+            <div>
+                <figure>
+                    <img src="{{ floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
+                </figure>
+            </div>
+        </section>
+    </main>
+    {{ '[elementor-template id="287"]'|shortcodes }}
+    <div class="text-center">
+        <h3>
+            Verkoop en contact
+        </h3>
+    </div>
+    {{ '[elementor-template id="290"]'|shortcodes }}
+{% endblock content %}
