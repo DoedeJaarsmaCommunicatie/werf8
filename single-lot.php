@@ -13,12 +13,26 @@ use App\Post;
  * @return Image
  */
 function get_image($name, $post, $term_id) {
-	$term_image = carbon_get_term_meta($term_id, $name);
-	if (!$term_image) {
-		return new Image($post->get_field($name));
+	$post_image = $post->get_field($name);
+	if (!$post_image) {
+		return carbon_get_term_meta($term_id, $name);
 	}
 
-	return new Image($term_image);
+	return new Image($post_image);
+}
+
+/**
+ * @param string $name
+ * @param Post   $post
+ * @param int    $term_id
+ */
+function get_field($name, $post, $term_id) {
+	$post_field = $post->get_field($name);
+	if (!$post_field) {
+		return carbon_get_term_meta($term_id, $name);
+	}
+
+	return $post_field;
 }
 
 $context = Timber::get_context();
@@ -39,17 +53,17 @@ $templates = [
 $context['floors'] = $post->terms('floor');
 $context['types'] = $post->terms('type');
 $context['price'] = [
-	'price' => $post->get_field('price'),
-	'info' => $post->get_field('price_extra'),
+	'price' => get_field('price', $post, $context['types'][0]->term_id),
+	'info' => get_field('price_extra', $post, $context['types'][0]->term_id),
 ];
 
 $context['areas'] = [
-	'surface' => $post->get_field('surface_area'),
-	'outside' => $post->get_field('outside_area'),
+	'surface' => get_field('surface_area', $post, $context['types'][0]->term_id),
+	'outside' => get_field('outside_area', $post, $context['types'][0]->term_id),
 ];
 
-$context['status'] = $post->get_field('status');
-$context['extra_content'] = $post->get_field('extra');
+$context['status'] = get_field('status', $post, $context['types'][0]->term_id);
+$context['extra_content'] = get_field('extra', $post, $context['types'][0]->term_id);
 
 $context['images'] = [
 	'floor_plan' => get_image('floor_plan', $post, $context['types'][0]->term_id),

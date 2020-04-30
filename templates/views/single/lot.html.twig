@@ -10,8 +10,8 @@
             <div class="p-8 bordered-content">
                 <div class="content border-right">
                     <h1 class="mb-4">{{ post.title }}</h1>
-                    {% if type[0].description %}
-                        {{ type[0].description }}
+                    {% if types[0].description %}
+                        {{ types[0].description }}
                     {% else %}
                         {{ post.content }}
                     {% endif %}

@@ -51,25 +51,7 @@ class PostTypeServiceProvider implements ServiceProvider
 
 		Container::make('post_meta', __('Woning info', 'werf8'))
 			->where('post_type', '=', 'lot')
-			->add_fields([
-				Field::make('text', 'price', __('Prijs', 'werf8'))
-					->set_attribute('placeholder' , 'xxx.xxx,-'),
-				Field::make('text', 'price_extra', __('Extra over prijs', 'werf8')),
-
-				Field::make('text', 'surface_area', __('Oppervlakte', 'werf8'))
-					->set_attribute('placeholder', 'xx'),
-				Field::make('text', 'outside_area', __('Buitenruimte', 'werf8'))
-					->set_attribute('placeholder', 'xx'),
-
-				Field::make('select', 'status', __('Status', 'werf8'))
-					->set_options([
-						'soon' => 'Binnenkort in de verkoop',
-						'active' => 'In de verkoop',
-						'sold' => 'Verkocht'
-					]),
-
-				Field::make('rich_text', 'extra', __('Extra info', 'werf8')),
-			]);
+			->add_fields($this->specific_data());
 
 		Container::make('post_meta', __('Afbeeldingen'))
 			->where('post_type', '=', 'lot')
@@ -78,6 +60,33 @@ class PostTypeServiceProvider implements ServiceProvider
 		Container::make('term_meta', __('Afbeeldingen'))
 			->where('term_taxonomy', '=', 'type')
 			->add_fields($this->image_fields());
+
+		Container::make('term_meta', __('Type informatie', 'werf8'))
+			->where('term_taxonomy', '=', 'type')
+			->add_fields($this->specific_data());
+	}
+
+	protected function specific_data(): array
+	{
+		return [
+			Field::make('text', 'price', __('Prijs', 'werf8'))
+			     ->set_attribute('placeholder' , 'xxx.xxx,-'),
+			Field::make('text', 'price_extra', __('Extra over prijs', 'werf8')),
+
+			Field::make('text', 'surface_area', __('Oppervlakte', 'werf8'))
+			     ->set_attribute('placeholder', 'xx'),
+			Field::make('text', 'outside_area', __('Buitenruimte', 'werf8'))
+			     ->set_attribute('placeholder', 'xx'),
+
+			Field::make('select', 'status', __('Status', 'werf8'))
+			     ->set_options([
+				     'soon' => 'Binnenkort in de verkoop',
+				     'active' => 'In de verkoop',
+				     'sold' => 'Verkocht'
+			     ]),
+
+			Field::make('rich_text', 'extra', __('Extra info', 'werf8')),
+		];
 	}
 
 	protected function image_fields(): array
