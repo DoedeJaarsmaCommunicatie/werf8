@@ -73,11 +73,20 @@ class PostTypeServiceProvider implements ServiceProvider
 
 		Container::make('post_meta', __('Afbeeldingen'))
 			->where('post_type', '=', 'lot')
-			->add_fields([
-				Field::make('image', 'floor_plan', __('Plattegrond', 'werf8')),
-				Field::make('image', 'ambiance_pic', __('Sfeerfoto')),
-				Field::make('image', 'exterior_marked', __('Exterieur vogelvlucht')),
-			]);
+			->add_fields($this->image_fields());
+
+		Container::make('term_meta', __('Afbeeldingen'))
+			->where('term_taxonomy', '=', 'type')
+			->add_fields($this->image_fields());
+	}
+
+	protected function image_fields(): array
+	{
+		return [
+			Field::make('image', 'floor_plan', __('Plattegrond', 'werf8')),
+			Field::make('image', 'ambiance_pic', __('Sfeerfoto')),
+			Field::make('image', 'exterior_marked', __('Exterieur vogelvlucht')),
+		];
 	}
 
 }

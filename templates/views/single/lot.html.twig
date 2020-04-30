@@ -10,7 +10,11 @@
             <div class="p-8 bordered-content">
                 <div class="content border-right">
                     <h1 class="mb-4">{{ post.title }}</h1>
-                    {{ post.content }}
+                    {% if type[0].description %}
+                        {{ type[0].description }}
+                    {% else %}
+                        {{ post.content }}
+                    {% endif %}
                 </div>
                 <aside>
                     <h2 class="mb-4">Specificaties</h2>
