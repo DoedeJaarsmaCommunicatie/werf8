@@ -11,8 +11,8 @@
   }
 
   .bordered-content {
+    border: 1px solid #21242B;
     @screen lg {
-      border: 1px solid #21242B;
       display: flex;
 
     }
@@ -34,7 +34,11 @@
 }
 
 .border-right {
-  border-right: 1px solid #21242B;
+  border-bottom: 1px solid #21242B;
+  @screen lg {
+    border-right: 1px solid #21242B;
+    border-bottom: none;
+  }
 }
 
 .content {
