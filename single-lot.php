@@ -11,13 +11,13 @@ $post = new Post();
 $context ['post'] = $post;
 
 $templates = [
-	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->id . '.twig',
-	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->slug . '.twig',
-	'views/single/' . $context[ 'post' ]->id . '.twig',
-	'views/single/' . $context[ 'post' ]->slug . '.twig',
-	'views/single/' . $context[ 'post' ]->post_type . '.twig',
-	'views/single.twig',
-	'views/index.twig'
+	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->id . '.html.twig',
+	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->slug . '.html.twig',
+	'views/single/' . $context[ 'post' ]->id . '.html.twig',
+	'views/single/' . $context[ 'post' ]->slug . '.html.twig',
+	'views/single/' . $context[ 'post' ]->post_type . '.html.twig',
+	'views/single.html.twig',
+	'views/page.html.twig'
 ];
 
 $context['floors'] = $context['post']->terms('floor');

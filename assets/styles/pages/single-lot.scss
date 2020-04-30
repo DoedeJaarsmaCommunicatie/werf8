@@ -15,11 +15,12 @@
     display: flex;
 
     .content {
+      @apply pr-8;
       flex: 1 1 60%;
     }
 
     aside {
-      @apply pl-4;
+      @apply pl-8;
       flex: 0 1 30%;
     }
   }

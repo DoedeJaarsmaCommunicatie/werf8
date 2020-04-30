@@ -6,8 +6,8 @@
             <img class="hero-image" src="{{ images.ambiance.src }}" alt="{{ post.title }}" />
         </figure>
 
-        <section class="container mx-auto ">
-            <div class="p-4 bordered-content">
+        <section class="container mx-auto my-8">
+            <div class="p-8 bordered-content">
                 <div class="content border-right">
                     <h1 class="mb-4">{{ post.title }}</h1>
                     {{ post.content }}
@@ -24,7 +24,7 @@
                     {% endif %}
 
                     {% if floors %}
-                        <p>Ligging: {{ floors|join(' en ') }} verdieping</p>
+                        <p>Ligging: {{ floors|join(' en ') }}</p>
                     {% endif %}
 
                     {% if price.price %}
@@ -35,7 +35,7 @@
                         Status:
                         {% if status is same as('soon') %}
                             Binnenkort in de verkoop
-                            {% elsif status is same as('active') %}
+                            {% elseif status is same as('active') %}
                             In verkoop
                         {% else %}
                             Verkocht
@@ -46,7 +46,7 @@
             </div>
         </section>
 
-        <section class="lg:flex">
+        <section class="container mx-auto lg:flex">
             <aside>
                 <figure>
                     <img src="{{ images.exterior.src }}" alt="{{ post.title }} vanaf de buitenkant">
