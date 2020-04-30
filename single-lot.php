@@ -67,8 +67,8 @@ $context['extra_content'] = get_field('extra', $post, $context['types'][0]->term
 
 $context['images'] = [
 	'floor_plan' => get_image('floor_plan', $post, $context['types'][0]->term_id),
-	'ambiance' => get_image('ambiance', $post, $context['types'][0]->term_id),
-	'exterior' => get_image('exterior', $post, $context['types'][0]->term_id)
+	'ambiance' => get_image('ambiance_pic', $post, $context['types'][0]->term_id),
+	'exterior' => get_image('exterior_marked', $post, $context['types'][0]->term_id)
 ];
 
 Timber::render($templates, $context);

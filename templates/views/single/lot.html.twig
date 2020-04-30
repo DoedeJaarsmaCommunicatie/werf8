@@ -1,7 +1,7 @@
 {% extends 'layouts/app.twig' %}
 
 {% block content %}
-    <main class="main-content-lot">
+    <main class="main-content-lot pb-8">
         <figure class="hero">
             <img class="hero-image" src="{{ images.ambiance.src }}" alt="{{ post.title }}" />
         </figure>
@@ -58,13 +58,13 @@
             </aside>
             <div>
                 <figure>
-                    <img src="{{ floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
+                    <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
                 </figure>
             </div>
         </section>
     </main>
     {{ '[elementor-template id="287"]'|shortcodes }}
-    <div class="text-center">
+    <div class="text-center py-8">
         <h3>
             Verkoop en contact
         </h3>
