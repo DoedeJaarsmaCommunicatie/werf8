@@ -15,7 +15,7 @@ use App\Post;
 function get_image($name, $post, $term_id) {
 	$post_image = $post->get_field($name);
 	if (!$post_image) {
-		return carbon_get_term_meta($term_id, $name);
+		return new Image(carbon_get_term_meta($term_id, $name));
 	}
 
 	return new Image($post_image);

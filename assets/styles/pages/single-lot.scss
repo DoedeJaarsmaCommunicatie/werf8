@@ -11,16 +11,23 @@
   }
 
   .bordered-content {
-    border: 1px solid #21242B;
-    display: flex;
+    @screen lg {
+      border: 1px solid #21242B;
+      display: flex;
+
+    }
 
     .content {
-      @apply pr-8;
+      @screen lg {
+        @apply pr-8;
+      }
       flex: 1 1 60%;
     }
 
     aside {
-      @apply pl-8;
+      @screen lg {
+        @apply pl-8;
+      }
       flex: 0 1 30%;
     }
   }
@@ -37,5 +44,20 @@
 
   b {
     font-weight: bold;
+  }
+}
+
+.exterieur_afbeelding-container {
+  flex: 1 1 40%;
+  margin-right: auto;
+}
+
+.plattegrond-container {
+  flex: 1 1 40%;
+}
+
+.specs-container {
+  p {
+    margin-bottom: 0;
   }
 }
