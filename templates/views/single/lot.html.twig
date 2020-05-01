@@ -50,9 +50,8 @@
                     </div>
                     <aside class="specs-container">
                         <figure>
-                            <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
+                            <img src="{{ images.exterior.src }}" alt="{{ post.title }} vanaf de buitenkant">
                         </figure>
-
                     </aside>
                 </div>
             </section>
@@ -61,8 +60,9 @@
         <section class="container mx-auto lg:flex">
             <aside class="exterieur_afbeelding-container">
                 <figure>
-                    <img src="{{ images.exterior.src }}" alt="{{ post.title }} vanaf de buitenkant">
+                    <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
                 </figure>
+
             </aside>
             <div class="plattegrond-container px-4 lg:px-0">
                 {% if types[0].description %}
