@@ -20,10 +20,8 @@
   }
 
   .bordered-content {
-    border: 1px solid #21242B;
     @screen lg {
       display: flex;
-
     }
 
     .content {
@@ -43,15 +41,12 @@
 }
 
 .border-right {
-  border-bottom: 1px solid #21242B;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
 
   @screen lg {
     margin-bottom: 0;
     padding-bottom: 0;
-    border-right: 1px solid #21242B;
-    border-bottom: none;
   }
 }
 
