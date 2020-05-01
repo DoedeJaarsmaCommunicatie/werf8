@@ -71,4 +71,9 @@ $context['images'] = [
 	'exterior' => get_image('exterior_marked', $post, $context['types'][0]->term_id)
 ];
 
+
+if (post_password_required($context['post']->id)) {
+	array_unshift($templates, 'views/single/password.html.twig');
+}
+
 Timber::render($templates, $context);

@@ -18,9 +18,9 @@ class PostTypeServiceProvider implements ServiceProvider
 	{
 		$lots = new PostType([
 			'name'     => 'lot',
-			'singular' => __( 'Lot', 'werf8' ),
-			'plural'   => __( 'Lots', 'werf8' ),
-			'slug'     => 'kavel',
+			'singular' => __( 'Bouwnummer', 'werf8' ),
+			'plural'   => __( 'Bouwnummers', 'werf8' ),
+			'slug'     => 'bouwnummer',
 		]);
 
 		$lots->taxonomy('type');
@@ -35,8 +35,8 @@ class PostTypeServiceProvider implements ServiceProvider
 
 		(new Taxonomy([
 			'name' => 'floor',
-			'singular' => 'Floor',
-			'plural' => 'Floors',
+			'singular' => 'Verdieping',
+			'plural' => 'Verdiepingen',
 			'slug' => 'verdieping'
 		]))->register();
 
