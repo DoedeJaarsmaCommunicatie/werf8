@@ -13,27 +13,28 @@
             </aside>
         </div>
 
-        <section class="container mx-auto my-8 px-4 lg:px-0">
-            <div class="p-8 bordered-content">
-                <div class="content border-right">
-                    <h2 class="mb-4">Specificaties</h2>
+        <div class="curved">
+            <section class="container mx-auto my-8 px-4 lg:px-0">
+                <div class="p-8">
+                    <div class="content">
+                        <h2 class="mb-4">Specificaties</h2>
 
-                    {% if areas.surface %}
-                        <p>Oppervlakte: {{ areas.surface }} m<sup>2</sup></p>
-                    {% endif %}
+                        {% if areas.surface %}
+                            <p>Oppervlakte: {{ areas.surface }} m<sup>2</sup></p>
+                        {% endif %}
 
-                    {% if areas.outside %}
-                        <p>Buitenruimte: {{ areas.outside }} m<sup>2</sup></p>
-                    {% endif %}
+                        {% if areas.outside %}
+                            <p>Buitenruimte: {{ areas.outside }} m<sup>2</sup></p>
+                        {% endif %}
 
-                    {% if floors %}
-                        <p>Ligging: {{ floors|join(' en ') }}</p>
-                    {% endif %}
+                        {% if floors %}
+                            <p>Ligging: {{ floors|join(' en ') }}</p>
+                        {% endif %}
 
-                    {% if price.price %}
-                        <p>Prijs: &euro; {{ price.price }} {{ price.info }}</p>
-                    {% endif %}
-                    <p>
+                        {% if price.price %}
+                            <p>Prijs: &euro; {{ price.price }} {{ price.info }}</p>
+                        {% endif %}
+                        <p>
                         <span>
                             Status:
                             {% if status is same as('soon') %}
@@ -44,17 +45,18 @@
                                 Verkocht
                             {% endif %}
                         </span>
-                    </p>
+                        </p>
 
+                    </div>
+                    <aside class="specs-container">
+                        <figure>
+                            <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
+                        </figure>
+
+                    </aside>
                 </div>
-                <aside class="specs-container">
-                    <figure>
-                        <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}">
-                    </figure>
-
-                </aside>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <section class="container mx-auto lg:flex">
             <aside class="exterieur_afbeelding-container">

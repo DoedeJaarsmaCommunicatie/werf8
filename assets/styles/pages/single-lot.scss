@@ -36,7 +36,7 @@
     aside {
       @screen lg {
         @apply pl-8;
-        flex: 0 1 50%;
+        flex: 1 0 70%;
       }
     }
   }
@@ -71,11 +71,22 @@
 }
 
 .plattegrond-container {
-  flex: 1 1 40%;
+  @screen lg {
+    flex: 1 1 60%;
+    margin-left: 2rem;
+  }
 }
 
 .specs-container {
   p {
     margin-bottom: 0;
   }
+}
+
+.curved {
+  position: relative;
+  background: #eee2ce;
+  height: 120%;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
 }
