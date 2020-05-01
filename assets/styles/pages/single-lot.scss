@@ -83,4 +83,9 @@
   background: #eee2ce;
   border-bottom-left-radius: 50% 20%;
   border-bottom-right-radius: 50% 20%;
+
+  padding-bottom: 0.3rem;
+  @screen lg {
+    padding-bottom: 2rem;
+  }
 }
