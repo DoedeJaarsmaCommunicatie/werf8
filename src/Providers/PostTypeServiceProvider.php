@@ -95,7 +95,7 @@ class PostTypeServiceProvider implements ServiceProvider
 			Field::make('image', 'floor_plan', __('Plattegrond', 'werf8')),
 			Field::make('image', 'ambiance_pic', __('Sfeerfoto')),
 			Field::make('image', 'exterior_marked', __('Exterieur uitgelicht')),
-			Field::make('image', 'exterior_full', __('Exterieur compleet'))
+			Field::make('image', 'ground_plan', __('Vloerplattegrond'))
 		];
 	}
 

@@ -69,7 +69,7 @@ $context['images'] = [
 	'floor_plan' => get_image('floor_plan', $post, $context['types'][0]->term_id),
 	'ambiance' => get_image('ambiance_pic', $post, $context['types'][0]->term_id),
 	'exterior' => get_image('exterior_marked', $post, $context['types'][0]->term_id),
-	'exterior_full' => get_image('exterior_full', $post, $context['types'][0]->term_id)
+	'ground_plan' => get_image('ground_plan', $post, $context['types'][0]->term_id)
 ];
 
 if (post_password_required($context['post']->id)) {
