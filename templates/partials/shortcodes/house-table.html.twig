@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Woningvorm</th>
+            <th><i class="fas fa-euro"></i></th>
+            <th><i class="far fa-clone"></i></th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+        <tr>
+            <td>Bouwnummer {{ post.title }}</td>
+            <td>{{ bouwnummer.get_house_form() }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -4,5 +4,5 @@ namespace App\Controllers\Shortcodes;
 
 interface Shortcode
 {
-	public function action();
+	public static function action();
 }
