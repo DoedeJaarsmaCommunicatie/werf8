@@ -69,6 +69,8 @@ class PostTypeServiceProvider implements ServiceProvider
 	protected function specific_data(): array
 	{
 		return [
+			Field::make('text', 'house_form', __('Woningform', 'werf8')),
+
 			Field::make('text', 'price', __('Prijs', 'werf8'))
 			     ->set_attribute('placeholder' , 'xxx.xxx,-'),
 			Field::make('text', 'price_extra', __('Extra over prijs', 'werf8')),
@@ -86,6 +88,7 @@ class PostTypeServiceProvider implements ServiceProvider
 			     ]),
 
 			Field::make('rich_text', 'extra', __('Extra info', 'werf8')),
+
 		];
 	}
 

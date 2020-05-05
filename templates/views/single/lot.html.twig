@@ -3,14 +3,12 @@
 {% block content %}
     <main class="main-content-lot pb-8">
         <div class="container mx-auto">
-            <h1 class="mt-8 text-center">
-                Bouwnummer {{ post.title }}
-            </h1>
+            <h1 class="mt-8 text-center">Bouwnummer {{ post.title }}</h1>
             <div class="lg:flex">
                 {% if images.ambiance %}
-                <figure class="hero">
-                    <img class="hero-image" src="{{ images.ambiance.src }}" alt="{{ post.title }}" />
-                </figure>
+                    <figure class="hero">
+                        <img class="hero-image" src="{{ images.ambiance.src }}" alt="{{ post.title }}" />
+                    </figure>
                 {% endif %}
             </div>
         </div>
@@ -19,7 +17,7 @@
             <section class="container mx-auto my-8 px-4 lg:px-0">
                 <div class="p-8 bordered-content">
                     <div class="content border-right">
-                        <h2 class="mb-4">Specificaties</h2>
+                        <h3 class="mb-4">Specificaties</h3>
 
                         {% if areas.surface %}
                             <p>Oppervlakte: {{ areas.surface }} m<sup>2</sup></p>
@@ -49,6 +47,15 @@
                         </span>
                         </p>
 
+                        <h3>Type {{ types[0].name }}</h3>
+
+                        <p>
+                            {% if post.content %}
+                                {{ post.content }}
+                            {% else %}
+                                {{ types[0].description }}
+                            {% endif %}
+                        </p>
                     </div>
                     <aside class="specs-container">
                         <figure>
@@ -59,27 +66,22 @@
             </section>
         </div>
 
-        <section class="container mx-auto lg:flex">
-            <aside class="exterieur_afbeelding-container">
-                <figure>
-                    <img src="{{ images.ground_plan.src('large') }}"  alt="Verdiepingsplattegrond" style="width: 100%;" />
-                </figure>
-
-            </aside>
-            <div class="plattegrond-container px-4 lg:px-0">
-                {% if types[0].description %}
-                    {{ types[0].description }}
-                {% else %}
-                    {{ post.content }}
-                {% endif %}
-            </div>
-        </section>
-
         <div class="container mx-auto" style="padding: 2rem 0;">
             <figure>
                 <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}" style="margin: auto; max-height: 500px;">
             </figure>
         </div>
+
+        {% if images.ground_plan %}
+            <section class="container mx-auto lg:flex">
+                <aside class="exterieur_afbeelding-container">
+                    <figure>
+                        <img src="{{ images.ground_plan.src('large') }}"  alt="Verdiepingsplattegrond" style="width: 100%;" />
+                    </figure>
+                </aside>
+            </section>
+        {% endif %}
+
     </main>
 
     {{ '[elementor-template id="287"]'|shortcodes }}
