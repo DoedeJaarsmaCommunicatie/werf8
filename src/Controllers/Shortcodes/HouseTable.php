@@ -21,7 +21,7 @@ class HouseTable implements Shortcode
 			'house-table'
 		);
 
-		$context = Timber::get_context();
+		$context = [];
 		$args = [
 			'post_type' => 'lot',
 			'posts_per_page' => $attributes['limit'],
@@ -30,11 +30,11 @@ class HouseTable implements Shortcode
 
 
 		if ($attributes['in'] !== '') {
-			$context['posts'] ['post__in'] = explode(',', $attributes['in']);
+			$args['post__in'] = explode(',', $attributes['in']);
 		}
 
-		$context['posts'] = new PostQuery($args, Lot::class);
+		$context['posts'] = Timber::get_posts($args, Lot::class);
 
-		print Timber::compile(Template::partialHtmlTwigFile('shortcodes/house-table'), $context);
+		return Timber::compile(Template::partialHtmlTwigFile('shortcodes/house-table'), $context);
 	}
 }

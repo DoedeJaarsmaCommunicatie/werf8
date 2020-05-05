@@ -38,7 +38,7 @@ function get_field($name, $post, $term_id) {
 }
 
 $context = Timber::get_context();
-$post = new Post();
+$post = new \App\Lot();
 
 $context ['post'] = $post;
 

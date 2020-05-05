@@ -3,7 +3,7 @@
         <tr>
             <th>#</th>
             <th>Woningvorm</th>
-            <th><i class="fas fa-euro"></i></th>
+            <th><i class="fas fa-euro-sign"></i></th>
             <th><i class="far fa-clone"></i></th>
             <th>Status</th>
         </tr>
@@ -11,8 +11,19 @@
     <tbody>
     {% for post in posts %}
         <tr>
-            <td>Bouwnummer {{ post.title }}</td>
-            <td>{{ bouwnummer.get_house_form() }}</td>
+            <td><a href="{{ post.link }}">Bouwnummer {{ post.title }}</a></td>
+            <td>{{ post.get_house_form() }}</td>
+            <td>{{ post.get_price() }}</td>
+            <td>ca. {{ post.get_area() }} m<sup>2</sup></td>
+            <td>
+                {% if post.get_status is same as('soon') %}
+                    <i class="fas fa-dot-circle" style="color: #eee2ce;"></i> Binnenkort in verkoop
+                {% elseif post.get_status is same as('active') %}
+                    <i class="fas fa-dot-circle" style="color: #3BBE20;"></i> In verkoop
+                {% else %}
+                    <i class="fas fa-dot-circle" style="color: #ca1e38;"></i> Verkocht
+                {% endif %}
+            </td>
         </tr>
     {% endfor %}
     </tbody>
