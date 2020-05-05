@@ -16,6 +16,9 @@ module.exports = {
       secondary: { ...taupeColor },
       blue: { ...blueColor },
       taupe: { ...taupeColor },
+      gray: {
+        default: '#f4f4f4',
+      },
     },
   },
   variants: {},

@@ -25,6 +25,8 @@ function get_image($name, $post, $term_id) {
  * @param string $name
  * @param Post   $post
  * @param int    $term_id
+ *
+ * @return array|mixed|\Timber\mix|WP_Post
  */
 function get_field($name, $post, $term_id) {
 	$post_field = $post->get_field($name);
