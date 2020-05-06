@@ -64,6 +64,13 @@
                                 {{ types[0].description }}
                             {% endif %}
                         </p>
+
+                        <p>
+                            <a href="#plattegrond" class="button is-primary">Plattegrond</a>
+                            {% if images.ground_plan.src %}
+                                <a href="#floorplan" class="button is-primary mt-8">Verdiepingsplattegrond</a>
+                            {% endif %}
+                        </p>
                     </div>
                     <aside class="specs-container">
                         <figure>
@@ -75,14 +82,14 @@
         </div>
 
         <div class="container mx-auto" style="padding: 2rem 0;">
-            <h3 class="text-center">Plattegrond</h3>
+            <h3 class="text-center" id="plattegrond">Plattegrond</h3>
             <figure>
                 <img src="{{ images.floor_plan.src }}" alt="Plattegrond voor {{ post.title }}" style="margin: auto; max-height: 650px;">
             </figure>
         </div>
 
         {% if images.ground_plan.src %}
-            <div class="bg-gray curved" style="background: #f4f4f4;">
+            <div class="bg-gray curved" id="floorplan" style="background: #f4f4f4;">
                 <section class="container mx-auto lg:flex">
                     <aside class="exterieur_afbeelding-container">
                         <figure>
