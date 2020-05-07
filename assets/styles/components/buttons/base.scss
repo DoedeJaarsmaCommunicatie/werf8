@@ -4,7 +4,7 @@
 %btn {
   @extend %bulb;
 
-  display: block;
+  display: inline-block;
   padding: .5rem 1rem;
   text-decoration: none;
 }
