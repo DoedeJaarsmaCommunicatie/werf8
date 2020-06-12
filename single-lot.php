@@ -55,7 +55,7 @@ $templates = [
 $context['floors'] = $post->terms('floor');
 $context['types'] = $post->terms('type');
 $context['price'] = [
-	'price' => get_field('price', $post, $context['types'][0]->term_id),
+	'price' => apply_filters('werf8/single/lot/price/price', get_field('price', $post, $context['types'][0]->term_id), $post->id),
 	'info' => get_field('price_extra', $post, $context['types'][0]->term_id),
 ];
 
