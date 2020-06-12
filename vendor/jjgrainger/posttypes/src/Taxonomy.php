@@ -9,11 +9,11 @@ use PostTypes\Columns;
  *
  * Create WordPress Taxonomies easily
  *
- * @link http://github.com/jjgrainger/PostTypes/
+ * @link    https://github.com/jjgrainger/PostTypes/
  * @author  jjgrainger
- * @link    http://jjgrainger.co.uk
+ * @link    https://jjgrainger.co.uk
  * @version 2.0
- * @license http://www.opensource.org/licenses/mit-license.html MIT License
+ * @license https://opensource.org/licenses/mit-license.html MIT License
  */
 class Taxonomy
 {
@@ -129,12 +129,16 @@ class Taxonomy
 
     /**
      * Assign a PostType to register the Taxonomy to
-     * @param  string $posttype
+     * @param  mixed $posttypes
      * @return $this
      */
-    public function posttype($posttype)
+    public function posttype($posttypes)
     {
-        $this->posttypes[] = $posttype;
+        $posttypes = is_string($posttypes) ? [$posttypes] : $posttypes;
+
+        foreach ($posttypes as $posttype) {
+            $this->posttypes[] = $posttype;
+        }
 
         return $this;
     }
@@ -160,23 +164,23 @@ class Taxonomy
     {
         // register the taxonomy, set priority to 9
         // so taxonomies are registered before PostTypes
-        add_action('init', [&$this, 'registerTaxonomy'], 9);
+        add_action('init', [$this, 'registerTaxonomy'], 9);
 
         // assign taxonomy to post type objects
-        add_action('init', [&$this, 'registerTaxonomyToObjects']);
+        add_action('init', [$this, 'registerTaxonomyToObjects']);
 
         if (isset($this->columns)) {
             // modify the columns for the Taxonomy
-            add_filter("manage_edit-{$this->name}_columns", [&$this, 'modifyColumns']);
+            add_filter("manage_edit-{$this->name}_columns", [$this, 'modifyColumns']);
 
             // populate the columns for the Taxonomy
-            add_filter("manage_{$this->name}_custom_column", [&$this, 'populateColumns'], 10, 3);
+            add_filter("manage_{$this->name}_custom_column", [$this, 'populateColumns'], 10, 3);
 
             // set custom sortable columns
-            add_filter("manage_edit-{$this->name}_sortable_columns", [&$this, 'setSortableColumns']);
+            add_filter("manage_edit-{$this->name}_sortable_columns", [$this, 'setSortableColumns']);
 
             // run action that sorts columns on request
-            add_action('parse_term_query', [&$this, 'sortSortableColumns']);
+            add_action('parse_term_query', [$this, 'sortSortableColumns']);
         }
     }
 

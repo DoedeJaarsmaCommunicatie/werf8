@@ -6,7 +6,8 @@ use PostTypes\Columns;
 
 class PostTypeTest extends TestCase
 {
-    public function setUp() {
+    protected function setUp(): void
+    {
         // setup basic PostType
         $this->books = new PostType('book');
     }
@@ -89,6 +90,16 @@ class PostTypeTest extends TestCase
         $books->taxonomy('genre');
 
         $this->assertEquals($books->taxonomies, ['genre']);
+    }
+
+    /** @test */
+    public function canAddMultipleTaxonomies()
+    {
+        $books = $this->books;
+
+        $books->taxonomy(['genre', 'publisher']);
+
+        $this->assertEquals($books->taxonomies, ['genre', 'publisher']);
     }
 
     /** @test */

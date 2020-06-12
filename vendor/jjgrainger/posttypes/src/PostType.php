@@ -9,11 +9,11 @@ use PostTypes\Columns;
  *
  * Create WordPress custom post types easily
  *
- * @link http://github.com/jjgrainger/PostTypes/
+ * @link    https://github.com/jjgrainger/PostTypes/
  * @author  jjgrainger
- * @link    http://jjgrainger.co.uk
+ * @link    https://jjgrainger.co.uk
  * @version 2.0
- * @license http://www.opensource.org/licenses/mit-license.html MIT License
+ * @license https://opensource.org/licenses/mit-license.html MIT License
  */
 class PostType
 {
@@ -25,25 +25,25 @@ class PostType
 
     /**
      * The name for the PostType
-     * @var array
+     * @var string
      */
     public $name;
 
     /**
      * The singular for the PostType
-     * @var array
+     * @var string
      */
     public $singular;
 
     /**
      * The plural name for the PostType
-     * @var array
+     * @var string
      */
     public $plural;
 
     /**
      * The slug for the PostType
-     * @var array
+     * @var string
      */
     public $slug;
 
@@ -147,12 +147,16 @@ class PostType
 
     /**
      * Add a Taxonomy to the PostType
-     * @param  string $taxonomy The Taxonomy name to add
+     * @param  mixed $taxonomies The Taxonomy name(s) to add
      * @return $this
      */
-    public function taxonomy($taxonomy)
+    public function taxonomy($taxonomies)
     {
-        $this->taxonomies[] = $taxonomy;
+        $taxonomies = is_string($taxonomies) ? [$taxonomies] : $taxonomies;
+
+        foreach ($taxonomies as $taxonomy) {
+            $this->taxonomies[] = $taxonomy;
+        }
 
         return $this;
     }
@@ -212,26 +216,26 @@ class PostType
     public function register()
     {
         // register the PostType
-        add_action('init', [&$this, 'registerPostType']);
+        add_action('init', [$this, 'registerPostType']);
 
         // register Taxonomies to the PostType
-        add_action('init', [&$this, 'registerTaxonomies']);
+        add_action('init', [$this, 'registerTaxonomies']);
 
         // modify filters on the admin edit screen
-        add_action('restrict_manage_posts', [&$this, 'modifyFilters']);
+        add_action('restrict_manage_posts', [$this, 'modifyFilters']);
 
         if (isset($this->columns)) {
             // modify the admin edit columns.
-            add_filter("manage_{$this->name}_posts_columns", [&$this, 'modifyColumns'], 10, 1);
+            add_filter("manage_{$this->name}_posts_columns", [$this, 'modifyColumns'], 10, 1);
 
             // populate custom columns
-            add_filter("manage_{$this->name}_posts_custom_column", [&$this, 'populateColumns'], 10, 2);
+            add_filter("manage_{$this->name}_posts_custom_column", [$this, 'populateColumns'], 10, 2);
 
             // run filter to make columns sortable.
-            add_filter('manage_edit-'.$this->name.'_sortable_columns', [&$this, 'setSortableColumns']);
+            add_filter('manage_edit-'.$this->name.'_sortable_columns', [$this, 'setSortableColumns']);
 
             // run action that sorts columns on request.
-            add_action('pre_get_posts', [&$this, 'sortSortableColumns']);
+            add_action('pre_get_posts', [$this, 'sortSortableColumns']);
         }
     }
 
@@ -496,9 +500,9 @@ class PostType
         $orderby = $query->get('orderby');
 
         // if the sorting a custom column
-        if (array_key_exists($orderby, $this->columns()->sortable)) {
+        if ($this->columns()->isSortable($orderby)) {
             // get the custom column options
-            $meta = $this->columns()->sortable[$orderby];
+            $meta = $this->columns()->sortableMeta($orderby);
 
             // determine type of ordering
             if (is_string($meta)) {
