@@ -13,7 +13,10 @@
         <tr>
             <td><a href="{{ post.link }}">Bouwnummer {{ post.title }}</a></td>
             <td>{{ post.get_house_form() }}</td>
-            <td>{{ post.get_price() }}</td>
+            <td>
+{#                {{ post.get_price() }}#}
+                Binnenkort bekend
+            </td>
             <td>ca. {{ post.get_area() }} m<sup>2</sup></td>
             <td>
                 {% if post.get_status is same as('soon') %}

@@ -26,6 +26,8 @@ class HouseTable implements Shortcode
 			'post_type' => 'lot',
 			'posts_per_page' => $attributes['limit'],
 			'post__not_in' => explode(',', $attributes['not']),
+			'orderby' => 'title',
+			'order' => 'ASC'
 		];
 
 
