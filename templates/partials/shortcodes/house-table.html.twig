@@ -3,7 +3,7 @@
         <tr>
             <th>#</th>
             <th>Woningvorm</th>
-            <th><i class="fas fa-euro-sign"></i></th>
+            <th><i class="fas fa-euro-sign"></i> (v.o.n.)</th>
             <th><i class="far fa-clone"></i></th>
             <th>Status</th>
         </tr>
@@ -13,10 +13,7 @@
         <tr>
             <td><a href="{{ post.link }}">Bouwnummer {{ post.title }}</a></td>
             <td>{{ post.get_house_form() }}</td>
-            <td>
-{#                {{ post.get_price() }}#}
-                Binnenkort bekend
-            </td>
+            <td><i class="fas fa-euro-sign"></i> {{ post.get_price() }}</td>
             <td>ca. {{ post.get_area() }} m<sup>2</sup></td>
             <td>
                 {% if post.get_status is same as('soon') %}
